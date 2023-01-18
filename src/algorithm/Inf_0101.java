@@ -26,12 +26,12 @@ public class Inf_0101 {
     }
 
     public static void main(String[] args){
-        Inf_0101 M = new Inf_0101();
+        Inf_0101 m = new Inf_0101();
         Scanner kb = new Scanner(System.in);
 
         String str = kb.next();
         char c = kb.next().charAt(0);
 
-        System.out.println(M.solution(str, c));
+        System.out.println(m.solution(str, c));
     }
 }
