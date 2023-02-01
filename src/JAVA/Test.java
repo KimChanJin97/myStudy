@@ -1,13 +1,13 @@
 package JAVA;
 
-public class Test{
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
+public class Test{
+    // StringBuffer, StringBuilder의 replace 와
+    // String의 replaceAll 차이가 무엇일까?
 
     public static void main(String[] args) {
-        System.out.println("java197@gamil.com java2@naver.com".replaceAll("\\w+@\\w+\\.\\w+(\\.\\w+)?","#"));
-        // \\w
-        System.out.println("a1b2c3d4".replaceAll("[a-z]","<$0>"));
-        // <a>1<b>2<c>3<d>4
 
     }
 }
