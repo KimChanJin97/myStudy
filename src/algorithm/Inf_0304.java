@@ -1,4 +1,4 @@
 package algorithm;
 
-public class Inf_0114 {
+public class Inf_0304 {
 }
