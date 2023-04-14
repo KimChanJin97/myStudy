@@ -1,27 +1,52 @@
 package JAVA;
 
-import java.util.Scanner;
+import java.io.*;
 
 public class Test{
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        File f = createFile(args[0]);
+        System.out.println(f.getName() + "파일이 성공적으로 생성되었음");
+    }
 
-        // Case1
-        String s1 = sc.next();
-        String s2 = sc.nextLine();
-        int i1 = sc.nextInt();
+    static File createFile(String fileName){
+        try{
+            if(fileName==null || fileName.equals(""))
+                throw new Exception("파일 이름이 유효하지 않음");
+        } catch(Exception e){
+            fileName = "제목없음.txt";
+        } finally {
+            File f = new File(fileName);
+            createNewFile(f);
+            return f;
+        }
+    }
 
-        System.out.println("s1 " + s1);
-        System.out.println("s2 " + s2);
-        System.out.println("i1 " + i1);
-
-        // Case2
-        String s3 = sc.next();
-        int i2 = sc.nextInt();
-        String s4 = sc.nextLine();
-
-        System.out.println("s3 " + s3);
-        System.out.println("i2 " + i2);
-        System.out.println("s4 " + s4);
+    static void createNewFile(File f){
+        try{
+            f.createNewFile();
+        } catch(Exception e){}
     }
 }
+
+//package JAVA;
+//
+//        import java.io.*;
+//
+//public class Test{
+//    public static void main(String[] args) {
+//        try{
+//            File f = createFile(args[0]);
+//            System.out.println(f.getName() + "파일이 성공적으로 생성되었음");
+//        } catch(Exception e){
+//            System.out.println(e.getMessage() + " 다시 입력해야함");
+//        }
+//    }
+//
+//    static File createFile(String fileName) throws Exception{
+//        if(fileName==null || fileName.equals(""))
+//            throw new Exception("파일 이름이 유효하지 않음");
+//        File f = new File(fileName);
+//        f.createNewFile();
+//        return f;
+//    }
+//}
