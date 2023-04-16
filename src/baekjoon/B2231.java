@@ -2,6 +2,7 @@ package baekjoon;
 
 import java.util.Scanner;
 
+// 분해합
 public class B2231 {
     // 생성자 = 198
     // 분해합 = 198 + 1 + 9 + 8 = 216
