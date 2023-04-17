@@ -1,26 +1,30 @@
 package baekjoon;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 // 체스판 다시 칠하기
 public class B1018 {
     public static boolean[][] arr; // 2차원 배열
     public static int min = 64; // 최대 색칠 횟수 8 * 8 부터 잡아두고 최소값으로 갱신
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        int M = sc.nextInt(); // 11\s
-        int N = sc.nextInt(); // 12\n
+        int N = Integer.parseInt(st.nextToken()); // 토큰만 읽음
+        int M = Integer.parseInt(st.nextToken()); // 토큰만 읽음
 
-        arr = new boolean[M][N];
+        arr = new boolean[N][M];
 
-        for (int i = 0; i < M; i++) { // 행 11개
-            String chessBoard = sc.next(); // \s 또는 \n 를 기준으로 문자열을 반환
+        for (int i = 0; i < N; i++) { // 행 11개
+            String line = br.readLine(); // 개행문자 전까지만 읽음
 
-            for (int j = 0; j < N; j++) { // 열 12개
+            for (int j = 0; j < M; j++) { // 열 12개
 
-                if (chessBoard.charAt(j) == 'W') {
+                if (line.charAt(j) == 'W') {
                     arr[i][j] = true; // White는 true로 가정
                 } else {
                     arr[i][j] = false; // Black은 false로 가정
@@ -28,8 +32,8 @@ public class B1018 {
             }
         }
 
-        int checkRow = M - 7;
-        int checkCol = N - 7;
+        int checkRow = N - 7;
+        int checkCol = M - 7;
 
         for (int i = 0; i < checkRow; i++) {
             for (int j = 0; j < checkCol; j++) {

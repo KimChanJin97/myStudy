@@ -3,13 +3,10 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
+// 숫자 정사각형
 public class B1051 {
-    public static int min = Integer.MIN_VALUE;
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,7 +22,9 @@ public class B1051 {
             String str = br.readLine();
 
             for (int j = 0; j < M; j++) { // 열
-                intArr[i][j] = str.charAt(j) - 48; // 문자 타입 숫자를 정수 타입 숫자로 변환하고 intArr에 대입
+                intArr[i][j] = str.charAt(j) - 48;
+                // 문자 타입 숫자('0'~'9')를 정수 타입 숫자(0~9)로 변환하고 intArr에 대입
+                // 문자 - 정수하면 정수로 캐스팅되기 때문에 가능
             }
         }
 
