@@ -19,21 +19,22 @@ public class B1158 {
             queue.add(i + 1); // 1번 ~ 7번
         }
 
-        System.out.print("<");
-        while(!queue.isEmpty()) {
-            for (int i = 0; i < K; i++) { // 0 ~ 2
-                if(i == K-1) { // 0,1,2 즉 요세푸스 수 3일 때 queue에서 빼자
-                    int yes = queue.remove();
-                    if(queue.isEmpty()) {
-                        System.out.print(yes);
-                    } else {
-                        System.out.print(yes + ", ");
-                    }
-                } else {
-                    queue.add(queue.remove());
-                }
+        for (int i = 0; i < K; i++) { // 0 ~ 2
+            if(i == K-1) { //
+                i = 0; //
+                sb.append(queue.remove() + ", ");
+            }
+
+            if(!queue.isEmpty()) {
+                int not = queue.remove();
+                queue.add(not);
+            } else {
+                break;
             }
         }
-        System.out.print(">");
+        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(">");
+        System.out.print(sb);
     }
 }
